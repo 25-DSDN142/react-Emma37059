@@ -3,6 +3,7 @@
 function prepareInteraction() {
   //bgImage = loadImage('/images/background.png');
 }
+//this is where i load an image in ^^
 
 function drawInteraction(faces, hands) {
   // hands part
@@ -10,25 +11,32 @@ function drawInteraction(faces, hands) {
   for (let i = 0; i < hands.length; i++) {
     let hand = hands[i];
     //console.log(hand);
-    if (showKeypoints) {
+    if (showKeypoints) { //code that makes if you push k, it shows the skeleton
       drawConnections(hand)
     }
 
     // This is how to load in the x and y of a point on the hand.
-    let indexFingerTipX = hand.index_finger_tip.x;
+    //naming the variables
+
+    let indexFingerTipX = hand.index_finger_tip.x; 
     let indexFingerTipY = hand.index_finger_tip.y;
 
-    //  let pinkyFingerTipX = hand.pinky_finger_tip.x;
-    //  let pinkyFingerTipY = hand.pinky_finger_tip.y;
+    let pinkyFingerTipX = hand.pinky_finger_tip.x;
+    let pinkyFingerTipY = hand.pinky_finger_tip.y;
+
+
 
     /*
     Start drawing on the hands here
     */
 
-    fill(225, 225, 0);
+    fill(225, 225, 0); //yellow, can change the fill
     ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
+    ellipse(pinkyFingerTipX, pinkyFingerTipY, 30, 30);
+    strokeWeight(5);
+    line(indexFingerTipX, indexFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
 
-    // drawPoints(hand)
+     drawPoints(hand)
 
     //fingerPuppet(indexFingerTipX, indexFingerTipY);
 
@@ -46,7 +54,7 @@ function drawInteraction(faces, hands) {
 
 
 
-
+//draws a cute little flower on the specific fingertip 
 function fingerPuppet(x, y) {
   fill(255, 38, 219) // pink
   ellipse(x, y, 100, 20)
