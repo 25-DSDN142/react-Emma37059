@@ -20,6 +20,35 @@ function drawInteraction(faces, hands) {
       drawConnections(hand)
     }
 
+//start drawing on the hands here
+
+//this code is from the tutorials below
+
+let whatGesture = detectHandGesture(hand)
+
+if (whatGesture == "Pinch") {
+
+  fill(255, 252, 48) //yellow
+}
+/*
+if (hand.movement == "Left") {
+  let middleOfHandX = (middleFingerTipX + wristX) / 2;
+  let middleOfHandY =  (middleFingerTipY + wristY) / 2;
+
+    let sizeOfEllipse = dist(middleFingerTipX, middleFingerTipY, wristX, wristY); //pixel number between two points
+
+    ellipse(middleOfHandX, middleOfHandY, sizeOfEllipse, sizeOfEllipse); //step in for image 
+}
+
+if (hand.movement == "Right") {
+  let middleOfHandX = (middleFingerTipX + wristX) / 2;
+  let middleOfHandY =  (middleFingerTipY + wristY) / 2;
+
+    let sizeOfEllipse = dist(middleFingerTipX, middleFingerTipY, wristX, wristY); //pixel number between two points
+
+    ellipse(middleOfHandX, middleOfHandY, sizeOfEllipse, sizeOfEllipse); //step in for image 
+}
+*/
 
     let thumbTip = hand.thumb_tip;
     let indTip = hand.index_finger_tip;
